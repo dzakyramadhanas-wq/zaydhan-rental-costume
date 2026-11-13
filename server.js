@@ -7,7 +7,7 @@ const costumeRoutes = require('./routes/costumes');
 const rentalRoutes = require('./routes/rentals');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -20,5 +20,5 @@ app.use('/api/costumes', costumeRoutes);
 app.use('/api/rentals', rentalRoutes);
 
 app.listen(PORT, () => {
-  console.log(`Server berjalan di http://localhost:${PORT}`);
+  console.log(`Server berjalan di port ${PORT}`);
 });
